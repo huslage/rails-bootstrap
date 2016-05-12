@@ -1,0 +1,33 @@
+{
+  "container_definitions": [
+    {
+      "name": "app",
+      "environment": [
+        {
+          "name": "RACK_ENV",
+          "value": "production"
+        }
+      ],
+      "links": [
+        "db"
+      ],
+      "image": "",
+      "command": [
+        "bundle",
+        "exec",
+        "rails",
+        "s",
+        "-b",
+        "0.0.0.0"
+      ],
+      "port_mappings": [
+        {
+          "protocol": "tcp",
+          "container_port": 3000,
+          "host_port": 0
+        }
+      ]
+    }
+  ],
+  "family": "huslagerails-bootstrap"
+}
