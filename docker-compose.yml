@@ -1,0 +1,15 @@
+---
+version: '2'
+services:
+  common:
+    environment:
+      RACK_ENV: production
+    build: "."
+  app:
+    links:
+    - db
+    ports:
+    - 3000:3000
+    command: rails s -b 0.0.0.0
+    extends:
+      service: common
